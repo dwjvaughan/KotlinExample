@@ -36,6 +36,9 @@ project {
         script {
             scriptContent = "echo 'Bananas!'"
         }
+        script {
+            scriptContent = "git --version"
+        }
     }
   }
 }
