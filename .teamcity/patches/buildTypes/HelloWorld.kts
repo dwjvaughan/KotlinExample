@@ -10,6 +10,10 @@ To apply the patch, change the buildType with id = 'HelloWorld'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("HelloWorld")) {
+    vcs {
+        add(DslContext.settingsRoot.id!!)
+    }
+
     triggers {
         add {
             vcs {
