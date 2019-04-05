@@ -6,5 +6,5 @@
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <include file="changesets/001_create_users.xml" />
+    <include file="migrations/changesets/001_create_users.xml" />
 </databaseChangeLog>

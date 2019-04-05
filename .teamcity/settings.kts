@@ -34,7 +34,7 @@ project {
             scriptContent = "echo ${env.LIQUIBASE_PASSWORD}"
         }
         script {
-            scriptContent = "liquibase --password=${env.LIQUIBASE_PASSWORD} --defaultsFile=cf-mysql-01.properties migrate"
+            scriptContent = "liquibase --password=%env.LIQUIBASE_PASSWORD% --defaultsFile=cf-mysql-01.properties migrate"
         }
     }
   }
