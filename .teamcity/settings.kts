@@ -33,6 +33,9 @@ project {
         script {
             scriptContent = "echo 'Hello world! Some more text!'"
         }
+        script {
+            scriptContent = "echo 'Bananas!'"
+        }
     }
   }
 }
