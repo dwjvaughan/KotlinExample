@@ -31,7 +31,7 @@ project {
     name = "Hello world"
     steps {
         script {
-            scriptContent = "liquibase && pwd"
+            scriptContent = "whoami && pwd"
         }
     }
   }
