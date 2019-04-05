@@ -1,6 +1,8 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.ScriptBuildStep
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_2.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
@@ -18,6 +20,17 @@ changeBuildType(RelativeId("HelloWorld")) {
 
     vcs {
         add(DslContext.settingsRoot.id!!)
+    }
+
+    expectSteps {
+        script {
+            scriptContent = "env && liquibase --defaultsFile=cf-mysql-01.properties migrate"
+        }
+    }
+    steps {
+        update<ScriptBuildStep>(0) {
+            scriptContent = "liquibase --password=%env.LIQUIBASE_PASSWORD% --defaultsFile=cf-mysql-01.properties migrate"
+        }
     }
 
     triggers {
