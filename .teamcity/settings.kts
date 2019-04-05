@@ -31,7 +31,7 @@ project {
     name = "Hello world"
     steps {
         script {
-            scriptContent = "liquibase --changeLogFile=migrations/changelog.xml --defaultsFile=cf-mysql-01.properties migrate"
+            scriptContent = "liquibase --defaultsFile=cf-mysql-01.properties migrate"
         }
     }
   }
