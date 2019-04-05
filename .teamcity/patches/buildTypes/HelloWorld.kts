@@ -12,6 +12,9 @@ accordingly, and delete the patch script.
 changeBuildType(RelativeId("HelloWorld")) {
     params {
         add {
+            password("env.LIQUIBASE_PASSWORD", "credentialsJSON:adc90461-ee37-48ca-ac34-6d7bf901dd25")
+        }
+        add {
             password("LIQUIBASE_PASSWORD", "credentialsJSON:adc90461-ee37-48ca-ac34-6d7bf901dd25")
         }
     }
