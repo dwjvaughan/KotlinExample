@@ -10,6 +10,12 @@ To apply the patch, change the buildType with id = 'HelloWorld'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("HelloWorld")) {
+    params {
+        add {
+            password("LIQUIBASE_PASSWORD", "credentialsJSON:adc90461-ee37-48ca-ac34-6d7bf901dd25")
+        }
+    }
+
     vcs {
         add(DslContext.settingsRoot.id!!)
     }
