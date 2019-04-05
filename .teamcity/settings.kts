@@ -31,13 +31,7 @@ project {
     name = "Hello world"
     steps {
         script {
-            scriptContent = "echo 'Hello world! Some more text!'"
-        }
-        script {
-            scriptContent = "echo 'Bananas!'"
-        }
-        script {
-            scriptContent = "git --version"
+            scriptContent = "liquibase && pwd"
         }
     }
   }
