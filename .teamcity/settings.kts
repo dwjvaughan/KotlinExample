@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 
 /*
 The settings script is an entry point for defining a TeamCity
