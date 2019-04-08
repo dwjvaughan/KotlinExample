@@ -22,11 +22,6 @@ changeBuildType(RelativeId("HelloWorld")) {
         add(DslContext.settingsRoot.id!!)
     }
 
-    expectSteps {
-        script {
-            scriptContent = "env && liquibase --defaultsFile=cf-mysql-01.properties migrate"
-        }
-    }
     steps {
         update<ScriptBuildStep>(0) {
             scriptContent = "liquibase --verbose --password=%env.LIQUIBASE_PASSWORD% --defaultsFile=cf-mysql-01.properties update"
