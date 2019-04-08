@@ -29,8 +29,5 @@ project {
   buildType {
     id("HelloWorld")
     name = "Hello world"
-    steps {
-
-    }
   }
 }
