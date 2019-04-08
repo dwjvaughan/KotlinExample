@@ -38,14 +38,22 @@ object Build : BuildType({
         root(DslContext.settingsRoot)
     }
 
+    params {
+        password("liquibasePassword", "credentialsJSON:c0f482be-b812-4979-8460-21a077f3ac2f")
+    }
+
     steps {
         script {
-            name = "liquibase version"
+            name = "Liquibase version"
             scriptContent = "liquibase --version"
         }
         script {
-            name = "liquibase update"
-            scriptContent = "liquibase --logLevel=debug --defaultsFile=cf-mysql-01.properties update"
+            name = "Liquibase validate"
+            scriptContent = "liquibase --logLevel=debug --password=%liquibasePassword% --defaultsFile=cf-mysql-01.properties validate"
+        }
+        script {
+            name = "Liquibase update"
+            scriptContent = "liquibase --logLevel=debug --password=%liquibasePassword% --defaultsFile=cf-mysql-01.properties update"
         }
     }
 
