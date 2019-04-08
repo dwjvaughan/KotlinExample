@@ -1,6 +1,8 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.ScriptBuildStep
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
 /*
@@ -12,6 +14,20 @@ changeBuildType(RelativeId("HelloWorld")) {
     params {
         remove {
             password("env.LIQUIBASE_PASSWORD", "credentialsJSON:adc90461-ee37-48ca-ac34-6d7bf901dd25")
+        }
+    }
+
+    expectSteps {
+        script {
+            scriptContent = "liquibase --verbose --password=%env.LIQUIBASE_PASSWORD% --defaultsFile=cf-mysql-01.properties update"
+        }
+        script {
+            scriptContent = "liquibase --version"
+        }
+    }
+    steps {
+        update<ScriptBuildStep>(0) {
+            scriptContent = "liquibase --verbose --password=dave --defaultsFile=cf-mysql-01.properties update"
         }
     }
 }
