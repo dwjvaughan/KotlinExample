@@ -45,7 +45,7 @@ object Build : BuildType({
         }
         script {
             name = "liquibase update"
-            scriptContent = "liquibase --verbose --password=dave --defaultsFile=cf-mysql-01.properties update"
+            scriptContent = "liquibase --logLevel=debug --defaultsFile=cf-mysql-01.properties update"
         }
     }
 
