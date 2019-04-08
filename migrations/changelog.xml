@@ -7,4 +7,5 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <include file="migrations/changesets/001_create_users.xml" />
+    <include file="migrations/changesets/002_create_things.xml" />
 </databaseChangeLog>
