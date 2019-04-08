@@ -33,6 +33,9 @@ project {
       script {
         scriptContent = "liquibase --version"
       }
+      script {
+        scriptContent = "liquibase --version"
+      }
     }
   }
 }
