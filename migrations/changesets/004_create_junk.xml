@@ -6,8 +6,12 @@
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <include file="migrations/changesets/001_create_users.xml" />
-    <include file="migrations/changesets/002_create_things.xml" />
-    <include file="migrations/changesets/003_create_audit.xml" />
-    <include file="migrations/changesets/004_create_junk.xml" />
+    <changeSet id="1" author="dvaughan">
+        <createTable tableName="junk">
+            <column autoIncrement="true" name="junk_id" type="tinyint">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_junk_id" />
+            </column>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>
