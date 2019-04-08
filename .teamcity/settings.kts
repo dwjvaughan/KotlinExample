@@ -31,11 +31,9 @@ project {
     id("HelloWorld")
     name = "Hello world"
     params {
-      add {
-          password("env.LIQUIBASE_PASSWORD", "credentialsJSON:adc90461-ee37-48ca-ac34-6d7bf901dd25")
-      }
+      password("env.LIQUIBASE_PASSWORD", "credentialsJSON:adc90461-ee37-48ca-ac34-6d7bf901dd25")
     }
-    
+
     steps {
       script {
         scriptContent = "liquibase --verbose --password=%env.LIQUIBASE_PASSWORD% --defaultsFile=cf-mysql-01.properties update"
