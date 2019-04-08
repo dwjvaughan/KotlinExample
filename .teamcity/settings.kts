@@ -26,12 +26,19 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2018.2"
 
 project {
+
   buildType {
     id("HelloWorld")
     name = "Hello world"
+    params {
+      add {
+          password("env.LIQUIBASE_PASSWORD", "credentialsJSON:adc90461-ee37-48ca-ac34-6d7bf901dd25")
+      }
+    }
+    
     steps {
       script {
-        scriptContent = "liquibase --version"
+        scriptContent = "liquibase --verbose --password=%env.LIQUIBASE_PASSWORD% --defaultsFile=cf-mysql-01.properties update"
       }
       script {
         scriptContent = "liquibase --version"
