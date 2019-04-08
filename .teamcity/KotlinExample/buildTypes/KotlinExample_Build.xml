@@ -12,6 +12,13 @@
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_5" name="liquibase update" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="liquibase --verbose --password=dave --defaultsFile=cf-mysql-01.properties update" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="KotlinExample_HttpsGithubComDwjvaughanKotlinExampleGitRefsHeadsMaster" />
