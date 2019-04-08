@@ -34,7 +34,7 @@ changeBuildType(RelativeId("Build")) {
         }
         insert(2) {
             script {
-                name = "liquibase update (1)"
+                name = "liquibase update"
                 scriptContent = "liquibase --logLevel=debug --password=%liquibasePassword% --defaultsFile=cf-mysql-01.properties update"
             }
         }
