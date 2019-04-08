@@ -29,5 +29,10 @@ project {
   buildType {
     id("HelloWorld")
     name = "Hello world"
+    steps {
+      script {
+        scriptContent = "liquibase --version"
+      }
+    }
   }
 }
