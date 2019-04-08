@@ -29,7 +29,7 @@ changeBuildType(RelativeId("HelloWorld")) {
     }
     steps {
         update<ScriptBuildStep>(0) {
-            scriptContent = "liquibase --password=%env.LIQUIBASE_PASSWORD% --defaultsFile=cf-mysql-01.properties migrate"
+            scriptContent = "liquibase --verbose --password=%env.LIQUIBASE_PASSWORD% --defaultsFile=cf-mysql-01.properties update"
         }
     }
 
