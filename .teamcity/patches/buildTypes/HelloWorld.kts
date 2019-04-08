@@ -1,7 +1,6 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
-import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
@@ -26,8 +25,6 @@ changeBuildType(RelativeId("HelloWorld")) {
         }
     }
     steps {
-        update<ScriptBuildStep>(0) {
-            scriptContent = "liquibase --verbose --password=dave --defaultsFile=cf-mysql-01.properties update"
-        }
+        items.removeAt(0)
     }
 }
