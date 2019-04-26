@@ -40,5 +40,8 @@ changeBuildType(RelativeId("Build")) {
                 export current_build_date="${'$'}(date ${'$'}current_build_date_format)"
             """.trimIndent()
         }
+        update<ScriptBuildStep>(4) {
+            scriptContent = """curl -k -u "x:edca663a-18da-4532-a766-e8726545ce4c" https://localhost:8088/services/collector/event -d '{"sourcetype": "teamcity", "event": { "message":"Build Completed", "startTime": "${'$'}{current_build_date}", "endTime": "${'$'}(date)"}}'"""
+        }
     }
 }
