@@ -45,7 +45,7 @@ object Build : BuildType({
     steps {
         script {
             name = "Capture Start Time"
-            scriptContent = "export START_TIME=$(date)"
+            scriptContent = "export START_TIME=\$(date)"
         }
         script {
             name = "Liquibase version"
