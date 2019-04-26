@@ -61,7 +61,7 @@ object Build : BuildType({
         }
         script {
             name = "Send Metrics"
-            scriptContent = "curl -k -u \"x:edca663a-18da-4532-a766-e8726545ce4c\" https://localhost:8088/services/collector/event -d '{\"sourcetype\": \"teamcity\", \"event\": { \"message\":\"Build Completed\", \"startTime\": \"\${START_TIME}\", \"endTime\": \"\$(date)\"}}'\"
+            scriptContent = "curl -k -u \"x:edca663a-18da-4532-a766-e8726545ce4c\" https://localhost:8088/services/collector/event -d '{\"sourcetype\": \"teamcity\", \"event\": { \"message\":\"Build Completed\", \"startTime\": \"\${START_TIME}\", \"endTime\": \"\$(date)\"}}'"
         }
     }
 
