@@ -38,6 +38,7 @@ changeBuildType(RelativeId("Build")) {
             scriptContent = """
                 export current_build_date_format="+%%Y.%%m.%%d"
                 export current_build_date="${'$'}(date ${'$'}current_build_date_format)"
+                echo "##teamcity[setParameter name='env.current_build_date' value='${'$'}current_build_date']"
             """.trimIndent()
         }
         update<ScriptBuildStep>(4) {
