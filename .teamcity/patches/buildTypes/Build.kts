@@ -42,7 +42,7 @@ changeBuildType(RelativeId("Build")) {
             """.trimIndent()
         }
         update<ScriptBuildStep>(4) {
-            scriptContent = """curl -k -u "x:edca663a-18da-4532-a766-e8726545ce4c" https://cf-splunk-01:8088/services/collector/event -d '{"sourcetype": "teamcity", "event": { "message":"Build Completed", "startTime": "${'$'}{current_build_date}", "endTime": "${'$'}(date)"}}'"""
+            scriptContent = """curl -k -u "x:edca663a-18da-4532-a766-e8726545ce4c" https://cf-splunk-01:8088/services/collector/event -d '{"sourcetype": "teamcity", "event": { "message":"Build Completed", "startTime": "%env.current_build_date%", "endTime": "${'$'}(date)"}}'"""
         }
     }
 }
