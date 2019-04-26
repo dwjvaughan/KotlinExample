@@ -11,6 +11,12 @@ To apply the patch, change the buildType with id = 'Build'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("Build")) {
+    params {
+        add {
+            param("env.current_build_date", "dummy")
+        }
+    }
+
     expectSteps {
         script {
             name = "Capture Start Time"
